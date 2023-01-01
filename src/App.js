@@ -3,14 +3,12 @@ import { GoogleMap } from '@react-google-maps/api';
 import { GoogleMapsOverlay } from "@deck.gl/google-maps";
 import { GeoJsonLayer} from '@deck.gl/layers';
 import { MapStyles } from './MapStyles';
-import { useState } from 'react';
-
+import {  useState } from 'react';
 
 function App() {
   const [location,setLocation] = useState({lat: 40.712776, lng: -74.005974})
-  navigator.geolocation.getCurrentPosition((position)=>{
-    setLocation({lat:position.coords.latitude,lng:position.coords.longitude})
-  })
+
+
   const mapStyles = {
   height: "100vh",
   width: "100%" ,
@@ -20,6 +18,9 @@ function App() {
       <GoogleMap
       onLoad={map => {
         deckOverlay.setMap(map)
+        navigator.geolocation.getCurrentPosition(position => {
+          setLocation({lat:position.coords.latitude,lng:position.coords.longitude})
+        })
       }}
       
       options={{
@@ -28,7 +29,7 @@ function App() {
       }}
       mapContainerStyle={mapStyles}
       
-      zoom={14}
+      zoom={13}
       center={location}
       />
 
