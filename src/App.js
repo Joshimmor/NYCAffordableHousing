@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap } from '@react-google-maps/api';
 import { GoogleMapsOverlay } from "@deck.gl/google-maps";
 import { GeoJsonLayer} from '@deck.gl/layers';
 import { MapStyles } from './MapStyles';
